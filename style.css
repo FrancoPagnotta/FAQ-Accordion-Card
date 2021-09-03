@@ -1,0 +1,218 @@
+*, ::after, ::before {
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--font-family: 'Kumbh Sans', sans-serif;
+	--font-weight-regular: 400;
+	--font-weight-bold: 700;
+	--font-size: .75rem;
+
+	/* text color */
+	--very-dark-desaturated-blue: hsl(238, 29%, 16%);
+	--soft-red: hsl(14, 88%, 65%);
+	--very-dark-grayish-blue: hsl(237, 12%, 33%);
+	--dark-grayish-blue: hsl(240, 6%, 50%);
+
+	/* background gradient colors */
+	--soft-violet:hsl(273, 75%, 66%);
+	--soft-blue: hsl(240, 73%, 65%);
+
+	/* dividers */
+	--light-grayish-blue: hsl(240, 5%, 91%);
+}
+
+/* general */
+body {
+	margin: 0;
+	padding: 10rem 1rem;
+	font-family: var(--font-family);
+	height: 100vh;
+	background-image: linear-gradient(var(--soft-violet),var(--soft-blue));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--very-dark-desaturated-blue);
+}
+
+h1, h2 {
+	margin-top: 0;
+}
+
+/* mobile */
+.card {
+	background: #ffff;
+	border-radius: 1.25rem;
+	max-width: 56.25rem;
+	height: 33.75rem;
+	background-image: url("/bg-pattern-mobile.svg");
+	background-repeat: no-repeat;
+	background-position: center 1%;
+    background-size: 15rem;
+	padding: 1.5rem 1.5rem 2.875rem 1.5rem;
+	box-shadow: 0px 25px 31px -5px rgba(29,30,53,0.45);
+}
+
+.card-box {
+	display: none;
+}
+
+.card-image {
+	position: relative;
+}
+
+.front-image {
+	top: -8.3rem;
+    animation: none;
+    width: 16.625rem;
+    height: 12.25rem;
+    background: none;
+    background-image: url("/illustration-woman-online-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    transform: translateX(-0.5625rem);
+	}
+
+.card-text {
+	padding-top: 7rem;
+	width: 17.5rem;
+}
+
+.card-text h1 {
+	text-align: center;
+	font-size: 32px;
+}
+
+.accordion-item {
+	padding-top: 1rem;
+	border-bottom: 1px solid var(--light-grayish-blue);
+}
+
+.accordion-question {
+	width: 100%;
+	text-align: left;
+	margin-bottom: 1rem;
+}
+
+.accordion-button {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: none;
+	background: transparent;
+	padding: 0;
+	font-family: var(--font-family);
+	font-size: 14px;
+	color: var(--very-dark-grayish-blue);
+	font-weight: var(--font-weight-regular);
+	cursor: pointer;
+}
+
+.accordion-button::after {
+    width: .625rem;
+    height: .625rem;
+    content: "";
+    background: url('/icon-arrow-down.svg');
+    background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;
+}
+
+.accordion-button:hover {
+	color: var(--soft-red);
+}
+
+.accordion-collapse.collapse {
+	display: none;
+}
+
+.accordion-item.open .accordion-button {
+	font-weight: var(--font-weight-bold);
+}
+
+.accordion-item.open .accordion-button::after {
+	transform: rotate(-180deg);
+}
+
+.accordion-item.open .accordion-collapse.collapse {
+	display: block;
+}
+
+.accordion-answer {
+	font-size: var(--font-size);
+	color: var(--dark-grayish-blue);
+	padding-bottom: 1rem;
+}
+
+
+/* desktop */
+@media (min-width: 56.25rem) {
+	body {
+		padding: 5rem;
+	}
+
+	.card {
+		position: relative;
+		display: flex;
+		margin:auto;
+		padding: 4.375rem 4.375rem 5rem 0;
+		background-image: url("/bg-pattern-desktop.svg");
+		background-size: 85%;
+		background-repeat: no-repeat;
+		background-position: -315% 65%;
+		width: 56.25rem;
+		height: 31.25rem;
+	}
+
+	.card-box {
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 57%;
+		left: 0;
+		transform: translateX(-50%) translateY(-50%);
+		z-index: 1;
+	}
+
+	.card-image,
+	.card-text {
+		flex: 1;
+	}
+
+	.card-image {
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+	}	
+	
+	.front-image {
+	background: none;
+	background-image: url("/illustration-woman-online-desktop.svg");
+	background-repeat: no-repeat;
+	background-size: contain;
+	position: relative;
+	max-width: 25rem;
+	max-height: 20rem;
+	width: 100%;
+	overflow: visible;
+	height: 100%;
+	top: 0;
+	left: 0;
+	transform: translateX(-4rem) translateY(.3125rem);
+	}
+
+	.card-text {
+	padding-top: 0;
+	}
+
+	.card-text h1 {
+		text-align: left;
+	}
+
+	.accordion-item {
+		width: 90%;
+	}
+}
